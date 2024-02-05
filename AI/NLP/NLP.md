@@ -26,7 +26,7 @@ Word2Vec由Tomas Mikolov于2013年提出[^5d2826]，有CBoW（Continuous Bag of 
 
 因为CBoW和Skip-gram的原理几乎相同，这里仅介绍CBoW，见图5。
 
-![CBOW](./img/CBOW.jpg)
+![CBOW](<./img/CBOW.jpg>)
 
 图5.CBoW[^c98ee4]
 
@@ -34,7 +34,7 @@ Word2Vec由Tomas Mikolov于2013年提出[^5d2826]，有CBoW（Continuous Bag of 
 
 Word2Vec产出的词向量是静态的，没有语境的信息，因此没有一词多义的表征能力。
 
-![CBOW的权重抽取](./img/CBOW的权重抽取.jpg)
+![CBOW的权重抽取](<./img/CBOW的权重抽取.jpg>)
 
 图6.CBoW的权重抽取 [^4ef255]
 
@@ -44,7 +44,7 @@ Word2Vec产出的词向量是静态的，没有语境的信息，因此没有一
 
 通过设置参数由网络动态学习的遗忘门$f$、输入门$i$、候选状态$\widetilde{c}$、输出门$o$，来控制历史状态的记忆单元$c$和隐藏状态$h$影响当前输入的$x$，并输出新的$c$和$h$。换句话说，门机制能让循环神经网络学会上下文语境下哪些信息该丢弃，哪些需要继续传递下去。
 
-![LSTM](./img/LSTM.jpg)
+![LSTM](<./img/LSTM.jpg>)
 
 图7. LSTM 网络的循环单元结构，门、隐藏层的计算[^e7cb9d]。其中$\sigma$为Sigmoid函数，输出的区间为(0,1)。
 
@@ -52,7 +52,7 @@ Word2Vec产出的词向量是静态的，没有语境的信息，因此没有一
 
 另外在RNN中引入双向性也被证明是有益的，并应用于LSTM取得了显着的成果（如ELMo）[^10fb52]。
 
-![双向LSTM](./img/双向LSTM.jpg)
+![双向LSTM](<./img/双向LSTM.jpg>)
 
 图8. 双向LSTM[^e7cb9d]
 
@@ -70,7 +70,7 @@ Seq2Seq任务的解决方法通常使用Encoder-Decoder架构，可以使用两�
 
 注意力机制（Attention Mechanism）最初被用作对各种体系结构的增强，旨在让学习过程专注于输入信息中更重要的部分（即给予它们"注意力"）[^10fb52]。2014年在Bahdanau 等人的研究中，通过对Encoder输出的隐藏层增加一个由神经网络自己学习出来的权重层（见图9），让神经网络自己决定输入Decoder的向量是由哪些词汇得出的（也就是注意力），从而缓解了RNN在机器翻译任务中的问题2[^270b8a][^d9b98d]。之后注意力机制便被广泛应用于对RNN处理Seq2Seq问题的优化上[^d9b98d]。
 
-![Bahdanau的设计](./img/Bahdanau的设计.png)
+![Bahdanau的设计](<./img/Bahdanau的设计.png>)
 
 图9. Bahdanau的设计[^270b8a]
 
@@ -78,7 +78,7 @@ Seq2Seq任务的解决方法通常使用Encoder-Decoder架构，可以使用两�
 
 自注意力模型利用查询-键-值（Query-Key-Value，QKV）的模式，将输入的序列中的各个向量利用Query-Key计算出自身在整个语境中的注意力，再将注意力与自己的Value相乘，得到对应的输出向量（见图10）。
 
-![自注意力模型的计算过程](./img/自注意力模型的计算过程.jpg)
+![自注意力模型的计算过程](<./img/自注意力模型的计算过程.jpg>)
 
 图10. 自注意力模型的计算过程[^e7cb9d]
 
@@ -86,7 +86,7 @@ Seq2Seq任务的解决方法通常使用Encoder-Decoder架构，可以使用两�
 
 Transformer同样是解决Seq2Seq问题的Encoder-Decoder架构（见图11），原始论文中在翻译任务上进行训练。
 
-![Transformer](./img/Transformer.jpg)
+![Transformer](<./img/Transformer.jpg>)
 
 图11. Transformer[^61e60f]
 
@@ -116,7 +116,7 @@ BERT（Bidirectional Encoder Representations from Transformers）由Devlin J等�
 
 同样是输入文本，但首先在开头加上\[CLS\]标识符，在句尾加上\[SEP\]标识符，用WordPiece法分词，得到token-id。Embedding由三种组分相加得到（其中权重都是学出来的）。其它结构与Transformer的Encoder相同[^e4ab5a]。
 
-![BERT的三层Embedding](./img/BERT的三层Embedding.jpg)
+![BERT的三层Embedding](<./img/BERT的三层Embedding.jpg>)
 
 图12. BERT的三层Embedding[^e4ab5a]
 

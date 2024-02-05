@@ -4,7 +4,7 @@
 
 在Gido M. van de Ven 和Andreas S. Tolias的研究[^1adc5f][^42d972]中，曾提出了三种持续学习的任务类型。随着学界研究的深入，出现了越来越多种类的持续学习任务。结合Vincenzo Lomonaco[^cd0d0b]与Zixuan Ke, Bing Liu[^ab86d0]可总结为Task-IL（Task Incremental Learning）、Domain-IL、Class-IL和Data-IL，见图1。图中表格内纵向根据是否有多种任务进行分类，其中$t_N$代表训练第N次时的task-id：Single-Incremental-Task中一个模型学习一个任务；Multiple-Task中一个模型需学习多个任务，学习序列中任务不重复； Multiple-Incremental-Task中，一个模型需学习多个任务，学习的序列中任务出现无限制。横向根据习得的经验进行分类：New Instances中数据种类有限，但一个Class会有新样本的出现，也就是说数据的分布（Domain）会发生改变；New Classes中数据种类会增多，但一个Class训练完后不会出现新样本，也就是说数据的分布（Domain）不发生改变；New Instances and Classes是前两者的组合，数据种类会增多，一个Class也会有新样本的出现。在多任务中的每一格又根据预测时是否需要输出task-id分成两类。
 
-![持续学习的任务类型](./img/持续学习的任务类型.png)
+![持续学习的任务类型](<./img/持续学习的任务类型.png>)
 
 图1. 持续学习的任务类型
 
@@ -12,7 +12,7 @@
 
 Task-IL任务中，训练的任务持续增多，这里三种语言为三个Task，每种语言中不同的文章类型为不同的Class，每个Task中的文章类型数量是提前确定的，且每种文章类型是一次性训练完的，所以训练的过程中每种类型的Domain不会改变。Domain-IL任务中，每种文章类型的Domain是持续改变的，三种语言的差异成了同种文章数据分布上的改变，但文章类型的数目是提前确定的。Class-IL任务中，类别的数目是持续增加的，三种语言的差异退化成了类型，因此这里就成了九种Class。Data-IL任务中，Class的数目是持续增加的，每种类型的Domain是持续改变的，所以是Domain-IL和Class-IL的混合。
 
-![四种典型的持续学习任务的训练](./img/四种典型的持续学习任务的训练.png)
+![四种典型的持续学习任务的训练](<./img/四种典型的持续学习任务的训练.png>)
 
 图2. 四种典型的持续学习任务的训练
 
@@ -42,7 +42,7 @@ Task-IL任务中，训练的任务持续增多，这里三种语言为三个Task
 
 - Replaying Generated Pseudo Samples/Features：训练一个生成网络，输入标签，生成伪样本/特征（DGR[^81c3ba]）。
 
-![三种持续学习的方法](./img/三种持续学习的方法.png)
+![三种持续学习的方法](<./img/三种持续学习的方法.png>)
 
 图3. 三种持续学习的方法[^42d972]。a基于参数隔离的方法，b、c基于约束的方法，d、e基于回放的方法。
 

@@ -329,7 +329,7 @@ Filesystem Hierachy Standard
 
 文件系统层次结构标准
 
-![FHS](./img/FHS.png)
+![FHS](<./img/FHS.png>)
 
 `man hier`
 
@@ -393,9 +393,9 @@ Filesystem Hierachy Standard
   >
   > 因为最初写UNIX系统时/bin、/sbin、/lib超过了一个存储盘的空间上限，不得不把多出来的东西放到另一个存储盘，存在用户文件夹/usr下。后来本末倒置，干脆称/usr为**U**NIX **S**ource **R**epository或是**U**NIX **S**ystem **R**esources或是**U**NIX **S**oftware **R**esource随便什么能解释过去的词，新建个/home成为用户文件夹。现在完全没有存储上限的问题了，发行版才渐渐merge了/bin和/usr/bin的东西，现在用软连接互相等价就行了（两个地方都保留着，可能是向前兼容的考虑）
   >
-  > [filesystem - What is the rationale for the `/usr` directory? - Ask Ubuntu](https://askubuntu.com/a/135679)
+  > [filesystem - What is the rationale for the `/usr` directory? - Ask Ubuntu](<https://askubuntu.com/a/135679>)
   >
-  > [Understanding the bin, sbin, usr/bin , usr/sbin split](http://lists.busybox.net/pipermail/busybox/2010-December/074114.html)
+  > [Understanding the bin, sbin, usr/bin , usr/sbin split](<http://lists.busybox.net/pipermail/busybox/2010-December/074114.html>)
 
   - /usr/include：通用C头文件
   - /usr/local：自行安装的程序，不受系统软件管理机制（`apt`）控制
@@ -408,7 +408,7 @@ Filesystem Hierachy Standard
 
 对于软件安装位置的总结：
 
-> [filesystem - What is the rationale for the `/usr` directory? - Ask Ubuntu](https://askubuntu.com/a/135679)
+> [filesystem - What is the rationale for the `/usr` directory? - Ask Ubuntu](<https://askubuntu.com/a/135679>)
 >
 > Currently, regarding install directories, your the best way to understand is to think this way:
 >

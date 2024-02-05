@@ -4,15 +4,15 @@
 
 `s(W*x+b)`结构的神经网络能在有限范围内拟合$x^2$，所以对于$x_1*x_2=\frac{(x_1+x_2)^2-x_1^2-x_2^2}{2}$，在一定范围内也可以拟合
 
-[regression - Can a deep neural network approximate multiplication function? - Cross Validated](https://stats.stackexchange.com/questions/217703/can-a-deep-neural-network-approximate-multiplication-function)
+[regression - Can a deep neural network approximate multiplication function? - Cross Validated](<https://stats.stackexchange.com/questions/217703/can-a-deep-neural-network-approximate-multiplication-function>)
 
-![神经网络拟合乘法](./img/神经网络拟合乘法.jpg)
+![神经网络拟合乘法](<./img/神经网络拟合乘法.jpg>)
 
 添加点积结构能改善❓待实验
 
-[标准神经网络“乘加”结构的普适性讨论 - 知乎](https://zhuanlan.zhihu.com/p/56972144)
+[标准神经网络“乘加”结构的普适性讨论 - 知乎](<https://zhuanlan.zhihu.com/p/56972144>)
 
-![神经网络拟合乘法 点积结构](./img/神经网络拟合乘法 点积结构.png)
+![神经网络拟合乘法 点积结构](<./img/神经网络拟合乘法 点积结构.png>)
 
 ---
 
@@ -39,9 +39,9 @@
 
 ---
 
-[神经网络图灵机的通俗解释和详细过程及应用？](https://www.zhihu.com/question/42029751/answer/109995246)
+[神经网络图灵机的通俗解释和详细过程及应用？](<https://www.zhihu.com/question/42029751/answer/109995246>)
 
-> [你遇见过什么当时很有潜力但是最终没有流行的深度学习算法?](https://www.zhihu.com/question/490517834/answer/2162746696)
+> [你遇见过什么当时很有潜力但是最终没有流行的深度学习算法?](<https://www.zhihu.com/question/490517834/answer/2162746696>)
 >
 > 但后来NTM就不那么火了，可能有几点原因。首先这个实现在2014年用tensorflow，theano这种静态图语言写起来太麻烦了，原作一开始也没有公开源码，直到2018年才有人复现出一个stable版本，而且训练起来收敛慢容易爆NaN，都使得没有进一步应用。同时，transformer的后来兴起也使得大家觉得处理序列没必要用recurrent这种非并行结构。而且NTM好像并没有什么直接方式能够刷benchmark，做的任务也太简单了，也就有些凉了。
 >

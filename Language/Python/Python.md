@@ -1,6 +1,6 @@
 # 高阶函数
 
-![Nested Function](./img/Nested Function.jpg)
+![Nested Function](<./img/Nested Function.jpg>)
 
 可以用[Python Tutor][PythonTutor]跑跑看
 
@@ -26,7 +26,7 @@ a(3) # 6+2*3=12
 
 > [!WARNING]
 >
-> [Late Binding Closures — The Hitchhiker's Guide to Python](https://docs.python-guide.org/writing/gotchas/#late-binding-closures)
+> [Late Binding Closures — The Hitchhiker's Guide to Python](<https://docs.python-guide.org/writing/gotchas/#late-binding-closures>)
 >
 > 函数body（procedure）的定义是late-binding的，只有在运行到的时候才会去各个父级的frame确定变量的值
 >
@@ -103,7 +103,7 @@ b=a
 
   > [!WARNING]
   >
-  > [Mutable Default Arguments — The Hitchhiker's Guide to Python](https://docs.python-guide.org/writing/gotchas/#mutable-default-arguments)
+  > [Mutable Default Arguments — The Hitchhiker's Guide to Python](<https://docs.python-guide.org/writing/gotchas/#mutable-default-arguments>)
   >
   > 不要把可变类型作为函数的默认参数，Python在解释函数的时候，会把这个可变的东西算作函数的内部变量，然后你每次调用这个函数，默认参数就成了可变的内部变量了
   >

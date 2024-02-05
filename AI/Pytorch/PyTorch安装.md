@@ -3,9 +3,9 @@
     
     在GeForce中Update Driver，重启后看NVIDIA Control Panel中的
 
-![cuda version](./img/cuda version.jpg)
+![cuda version](<./img/cuda version.jpg>)
 
-![pytorch-pip](./img/pytorch-pip.jpg)
+![pytorch-pip](<./img/pytorch-pip.jpg>)
 
 2. PyTorch
 
