@@ -154,6 +154,10 @@ Dict\Set的访存时间均为`O(1)`，因为用的是Hash表，存储的元素�
 
 `map` `filter`
 
+# Build
+
+PyIntaller，`auto-py-to-exe`是个不错的GUI
+
 # 附件
 
 [PythonTutor]: https://pythontutor.com/python-compiler.html	"Python Tutor code visualizer: Visualize code in Python, JavaScript, C, C++, and Java"
