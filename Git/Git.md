@@ -1,18 +1,28 @@
+[GitHub Git Cheat Sheet](https://training.github.com/downloads/github-git-cheat-sheet/)
+
+深入理解git（她也写了Gitlet）[Git from the inside out](https://www.youtube.com/watch?v=fCtZWGhQBvo)
+
 ```bash
 git init
 git status
-git add * # add to stage 暂时保存
+git add/stage * # 暂时保存
 git commit
 git mv src dst # 重命名
 git checkout # 去任何一个branch的任何一个commit
 git branch 
 git log --show-signature --pretty=fuller
-gitk.exe # Visualizer
+
+gitk.exe # git Visualizer
+
+git fsck # 检查数据一致性
+git prune # unstage后原来的object会依旧保留着，通过这个自动去除unreachable object
+git repack
+git gc # 全套维护，Github里会自动运行这个命令，所以pull下来的不会有unreachable object
 ```
 
 `Git\bin\bash.exe` 模拟linux环境的工具
 
-## Config
+# Config
 
 ```bash
 git config --list --show-origin --show-scope # 所有已设置的config
