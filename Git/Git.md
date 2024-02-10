@@ -33,7 +33,7 @@ git fsck # 查看dangling object
 git prune # 立即去除
 ```
 
-删除branch不会删除commit，commit会变为dangling commit
+`branch -D`、`reset --hard`，不会删除commit以及对应的Blob，commit会变为dangling commit
 
 ```bash
 git branch -D [branchname]
