@@ -9,18 +9,41 @@ git add/stage * # 暂时保存
 git commit
 git mv src dst # 重命名
 git checkout # 去任何一个branch的任何一个commit
-git branch 
+git branch
 git log --show-signature --pretty=fuller
 
 gitk.exe # git Visualizer
+git cat-file -p [hashID] # 打印object文件
+git ls-files -st # 打印文件列表以及状态
 
 git fsck # 检查数据一致性
-git prune # unstage后原来的object会依旧保留着，通过这个自动去除unreachable object
+git prune # stage的中间状态依旧会保留在objects中，通过这个自动去除unreachable object
 git repack
 git gc # 全套维护，Github里会自动运行这个命令，所以pull下来的不会有unreachable object
 ```
 
 `Git\bin\bash.exe` 模拟linux环境的工具
+
+# 小细节
+
+每次add入stage的都会存入objects，中间过程的文件会变为dangling object
+
+```bash
+git fsck # 查看dangling object
+git prune # 立即去除
+```
+
+删除branch不会删除commit，commit会变为dangling commit
+
+```bash
+git branch -D [branchname]
+# 删除branch，只会删除指针，不会删除commit
+# 那些commit都无法被直接访问了，叫dangling commit，会在默认30天后被删除
+git fsck --no-reflogs # 查看dangling commit
+# 设置expire进行立刻删除
+git reflog expire --expire-unreachable=all --all
+git prune
+```
 
 # Config
 
