@@ -194,6 +194,17 @@ public class Dog implements Comparable<Dog>{
 
   - 传一个Instance进去，然后修改Instance的属性
 
+# 存储
+
+```java
+public class Dog implements Serializable{
+    private transient Home home;
+    // 指针默认会被一并save，如果不想一并save，用ID进行动态链接。
+    // 如果仍然想记录一个指针便于访问，用transient标记的不会被save，也不会被load，需要手动装载
+    private String homeID;
+}
+```
+
 # 细节
 
 1. `==`比较的是地址；

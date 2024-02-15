@@ -24,6 +24,22 @@ git gc # 全套维护，Github里会自动运行这个命令，所以pull下来�
 
 `Git\bin\bash.exe` 模拟linux环境的工具
 
+# Remote
+
+一般的仓库有working directory，作为合作的中心仓库不应该有这些working directory，所以要用bare仓库
+
+```bash
+git init --bare # 新建bare
+git clone --bare [src] [dst] # 从已有的仓库clone出bare仓库
+
+git remote add [remote name] [src]
+git push [remote name]
+# 如果指定branch的话，一定要对准，可以push到任意remote branch的
+git push [remote name] [local branch name]:[remote branch name]
+git push [remote name] [local branch name]: # 在remote中创建branch
+git push [remote name] :[remote branch name] # 在remote中删除branch
+```
+
 # 小细节
 
 每次add入stage的都会存入objects，中间过程的文件会变为dangling object
