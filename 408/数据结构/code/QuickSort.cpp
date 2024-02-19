@@ -13,13 +13,6 @@ int random()
 
 int Partition(int A[], int low, int high)
 {
-    if (A[low] > A[high])
-    {
-        int temp = A[high];
-        A[high] = A[low];
-        A[low] = temp;
-    }
-
     int pivot = A[low]; // 选择初始枢轴元素
 
     while (low < high)
