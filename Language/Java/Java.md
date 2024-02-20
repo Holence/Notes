@@ -207,10 +207,22 @@ public class Dog implements Serializable{
 
 # 细节
 
-1. `==`比较的是地址；
+## `==` vs `equals()`
 
-   `.equals()`比较的是内容，你自己的类需要Override这个函数，否则默认比较的是地址。
+`==`在Primitive Type间比的是内容，在Reference Type间比的是地址。
 
-2. String和其他类型的相加，Java默认帮你添上了`.toString()`
+`.equals()`是Reference Type的method，默认调用`==`比较地址，你自己的类需要Override这个函数去比较内容。
 
-3. 
+如果你修改了类中的`.equals()`，则必须同时修改`.hashcode()`（反之亦然），任何时候都要保证在`A.equals(B)`时`A.hashcode()==B.hashcode()`。否则hash相关的容器都无法为你的类正常服务（因为会调用`.hashcode()`来确定bucket，在调用`.equals()`来判断bucket中是否存在key）
+
+## `toString()`
+
+String和其他类型的相加时，Java默认帮你添上了`.toString()`
+
+## JIT
+
+Just-in-time compilation
+
+- `java -Xmixed`：自动观察程序中多次执行且不变的部分，优化编译成更底层的机器码（默认）
+- `java -Xint`：不进行任何优化，纯解释
+- `java -Xcomp`：纯编译
