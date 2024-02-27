@@ -70,17 +70,23 @@ b=a; // 等于memcpy，浅拷贝（b.p和a.p指向同一个）
   > 担心隐私数据被hack的话，记得在`free()`和`realloc()`之后`memset`为0
   >
   > ```c
-  > // free()后memset
-  > int *p = (int *)malloc(10 * sizeof(int));
-  > free(p);
-  > memset(p, 0, 10 * sizeof(int));
-  > 
-  > // realloc()后memset
-  > int *p = (int *)malloc(10 * sizeof(int));
-  > int *new_p = realloc(p, 20 * sizeof(int));
-  > if (new_p) {
-  >     memset(p, 0, 10 * sizeof(int));
+  > size = 10;
+  > int *p = (int *)malloc(size * sizeof(int));
+  > int *new_p = realloc(p, size * 2 * sizeof(int));
+  > if (!new_p) {
+  >     printf("Cannot realloc");
+  >     free(p);
+  >     exit(0);
   > }
+  > // 有可能realloc后仍在原位
+  > if (new_p != p) {
+  >     // 不在原位的话，realloc()后覆写0
+  >     memset(p, 0, size * sizeof(int));
+  > }
+  > p = new_p;
+  > free(p);
+  > // free()后覆写0
+  > memset(p, 0, size * sizeof(int));
   > ```
 
 - `global variable`: static data（定义之后大小不可变）
