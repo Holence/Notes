@@ -479,33 +479,15 @@ systemd？
 
 `crontab` `systemd timer`
 
-# Other
+# Server
 
 `SysRq` 进行紧急的系统维护操作：PrtScr键
 
-## C/C++
+## nano
 
-> gcc的编译其实是四个过程的集合，分别是预处理（preprocessing）、编译（compilation）、汇编（assembly）、链接（linking），分别由cpp、cc1、as、ld这四个程序完成，gcc是它们的封装。
->
-> 这四个过程分别完成：处理#开头的预编译指令、将源码编译为汇编代码、将汇编代码编译为二进制代码、组合众多二进制代码生成可执行文件，也可分别调用gcc-E、gcc-S、gcc-c、gcc来完成。
->
-> 在这一过程中，文件经历了如下变化：main.c到main.i到main.s到main.o到main。
->
-> ---
->
-> 默认编译是**动态链接**，即打包出来的可执行文件需要依赖系统的`.so`（windows上就是`.dll`）
->
-> 而把所有以来的库都打包到可执行文件，`gcc --static`，就是**静态链接**
->
-> 动态链接在别的环境下用可能无法运行，报错“缺失动态链接库”；而静态链接因为全打包了体积会很大。
+改为正常的快捷键
 
-`make`，搜索Makefile文件的配置，多文件批量编译
-
-## Python
-
-Linux自身有很多python的系统文件，直接在系统中乱搞pip怕把系统搞坏
-
-运行自己的project，建议`python3 -m venv project`后，`. /project/bin/activate`后再在里面用`pip`装环境
+`sudo nano /etc/nanorc` 在最下面把那些bind都取消注释
 
 ## Battery
 
@@ -525,18 +507,75 @@ Linux自身有很多python的系统文件，直接在系统中乱搞pip怕把系
 
    或`sudo umount /mnt/MOUNTNAME`
 
-## 镜像源
+## mirror
 
 `sudo sed -i 's|//.*archive.ubuntu.com|//mirrors.ustc.edu.cn|g' /etc/apt/sources.list`
 
-## FUN
+## DNS
 
-1. `tldr` too long dont read
-2. `cmatrix` 黑客屏保
-3. `nnn` 终端文件浏览器
-4. `tmux` 单屏多终端，并且作为“虚拟机”型的终端，退出后能保存session（仅仅是驻留在内存中，所以关机后就没了）
+```
+sudo nano /etc/systemd/resolved.conf
+DNS=8.8.8.8 1.1.1.1
 
-# 软件
+sudo systemctl restart systemd-resolved
+resolvectl status
+```
+
+## disable ipv6
+
+```
+sudo nano /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="ipv6.disable=1 ...others..."
+sudo update-grub
+```
+
+## Turn off Screen
+
+Create a file:
+
+```
+sudo nano /etc/systemd/system/enable-console-blanking.service
+```
+
+And put this into the file:
+
+```
+[Unit]
+Description=Enable virtual console blanking
+
+[Service]
+Type=oneshot
+Environment=TERM=linux
+StandardOutput=tty
+TTYPath=/dev/console
+ExecStart=/usr/bin/setterm -blank 1
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Then change the file rights and enable the service:
+
+```
+sudo chmod 664 /etc/systemd/system/enable-console-blanking.service
+sudo systemctl enable enable-console-blanking.service
+```
+
+And reboot the server. Now the screens blanks after 1 minute without keypresses, even before the login.
+
+## Cockpit
+
+远程web端控制
+
+`sudo apt install cockpit`
+
+[File Browser for Cockpit](https://github.com/45Drives/cockpit-navigator)
+
+## docker
+
+```
+curl -fsSL https://get.docker.com | sudo sh
+```
 
 ## WireGuard
 
@@ -558,5 +597,13 @@ sudo wg show
 sudo wg-quick down jp
 
 ??
+
 - wireguard 同一账号两个设备设定同一个子网地址
 - server设定子网地址和client设置子网地址不同会怎样
+
+## FUN
+
+1. `tldr` too long dont read
+2. `cmatrix` 黑客屏保
+3. `nnn` 终端文件浏览器
+4. `tmux` 单屏多终端，并且作为“虚拟机”型的终端，退出后能保存session（仅仅是驻留在内存中，所以关机后就没了）

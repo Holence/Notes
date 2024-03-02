@@ -207,6 +207,12 @@ public class Dog implements Serializable{
 
 # 细节
 
+## Generic Array
+
+```java
+Item[] items = (Item[]) new Object[100];
+```
+
 ## `==` vs `equals()`
 
 `==`在Primitive Type间比的是内容，在Reference Type间比的是地址。

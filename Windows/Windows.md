@@ -53,3 +53,6 @@ clean
 convert mbr或gpt
 ```
 
+# Win LTSC
+
+<https://massgrave.dev/windows_ltsc_links.html>

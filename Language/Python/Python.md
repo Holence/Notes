@@ -154,9 +154,17 @@ Dict\Set的访存时间均为`O(1)`，因为用的是Hash表，存储的元素�
 
 `map` `filter`
 
-# Build
+# 其他
+
+## Build
 
 PyIntaller，`auto-py-to-exe`是个不错的GUI
+
+## venv
+
+Linux自身有很多python的系统文件，直接在系统中乱搞pip怕把系统搞坏
+
+运行自己的project，建议`python3 -m venv project`后，`. /project/bin/activate`后再在里面用`pip`装环境
 
 # 附件
 
