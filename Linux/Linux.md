@@ -577,6 +577,46 @@ And reboot the server. Now the screens blanks after 1 minute without keypresses,
 curl -fsSL https://get.docker.com | sudo sh
 ```
 
+删除所有
+
+```bash
+# Stop all containers
+docker stop $(docker container ls -qa)
+
+# Remove all containers
+docker container rm $(docker container ls -qa)
+
+# Remove all images
+docker image rm -f $(docker image ls -qa)
+
+# Remove all volumes
+docker volume rm $(docker volume ls -q)
+
+# Remove all networks
+docker network rm $(docker network ls -q)
+```
+
+## samba
+
+```bash
+sudo apt update
+sudo apt install samba
+sudo nano /etc/samba/smb.conf
+##########在最后添加##########
+[sambashare]
+    comment = Samba on Ubuntu
+    path = /home/[username]/path
+    read only = no
+    browsable = yes
+##############################
+
+sudo service smbd restart
+sudo ufw allow samba
+sudo smbpasswd -a [username] # 为用户名设置密码
+
+# 在其他电脑上用\\ip-address\sambashare以及用户名和密码进行连接
+```
+
 ## WireGuard
 
 安装
