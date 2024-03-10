@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class HashingDisjointSet<T> {
+public class HashingDisjointSet<T> implements DisjointSet<T> {
     private class Group {
         List<T> members;
 
@@ -29,8 +29,13 @@ public class HashingDisjointSet<T> {
 
     private HashMap<T, Group> memberGroup;
 
-    HashingDisjointSet() {
+    public HashingDisjointSet() {
         memberGroup = new HashMap<>();
+    }
+
+    @Override
+    public int size() {
+        return memberGroup.size();
     }
 
     public void connect(T a, T b) {
@@ -80,12 +85,15 @@ public class HashingDisjointSet<T> {
         d.connect("A", "B");
         d.connect("C", "D");
         d.connect("A", "D");
+        d.connect("E", "F");
 
         System.out.println("isConnect(\"A\", \"P\") = " + d.isConnect("A", "P"));
         System.out.println("isConnect(\"A\", \"A\") = " + d.isConnect("A", "A"));
         System.out.println("isConnect(\"B\", \"C\") = " + d.isConnect("B", "C"));
+        System.out.println("isConnect(\"C\", \"F\") = " + d.isConnect("C", "F"));
         System.out.println("isConnect(\"A\", \"a\") = " + d.isConnect("A", "a"));
         System.out.println("isConnect(\"b\", \"d\") = " + d.isConnect("b", "d"));
+        System.out.println(d.size());
         System.out.println(d.memberGroup);
     }
 }

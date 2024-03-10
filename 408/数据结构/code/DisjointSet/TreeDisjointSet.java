@@ -6,14 +6,19 @@ import java.util.HashMap;
 /**
  * groupList中用负数表示为根节点，负数的绝对值表示group中总共有几个member
  */
-public class TreeDisjointSet<T> {
+public class TreeDisjointSet<T> implements DisjointSet<T> {
 
     HashMap<T, Integer> indexMap; // 每个元素所属的下标
     ArrayList<Integer> groupList; // 每个下标的group信息
 
-    TreeDisjointSet() {
+    public TreeDisjointSet() {
         indexMap = new HashMap<>();
         groupList = new ArrayList<>();
+    }
+
+    @Override
+    public int size() {
+        return indexMap.size();
     }
 
     public boolean isConnect(T a, T b) {
@@ -82,12 +87,15 @@ public class TreeDisjointSet<T> {
         d.connect("A", "B");
         d.connect("C", "D");
         d.connect("A", "D");
+        d.connect("E", "F");
 
         System.out.println("isConnect(\"A\", \"P\") = " + d.isConnect("A", "P"));
         System.out.println("isConnect(\"A\", \"A\") = " + d.isConnect("A", "A"));
         System.out.println("isConnect(\"B\", \"C\") = " + d.isConnect("B", "C"));
+        System.out.println("isConnect(\"C\", \"F\") = " + d.isConnect("C", "F"));
         System.out.println("isConnect(\"A\", \"a\") = " + d.isConnect("A", "a"));
         System.out.println("isConnect(\"b\", \"d\") = " + d.isConnect("b", "d"));
+        System.out.println(d.size());
         System.out.println(d.indexMap);
         System.out.println(d.groupList);
     }
