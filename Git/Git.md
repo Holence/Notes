@@ -110,10 +110,10 @@ gpg -ao private.asc --export-options backup --export-secret-keys UID
 # import
 gpg --import-options restore --import private.asc
 gpg --edit-key UID
-> gpg trust
+gpg> trust
 5 = I trust ultimately
 Your decision? 5
-> gpg quit
+gpg> quit
 ```
 
 建议为每个事务建立专用的subkey，比如git的commit sign，只需要导出这个subkey的public key放到Github的setting里，导出这个subkey的private key到写代码的电脑里并导入到gpg里，并配置git
