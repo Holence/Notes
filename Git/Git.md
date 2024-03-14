@@ -77,7 +77,8 @@ git config --list --show-origin --show-scope # 所有已设置的config
 
 ```bash
 git config --global core.quotepath off # 正确显示utf-8
-git config --global safe.directory * # 
+git config --global safe.directory *
+git config --global core.autocrlf true # 自动转换Windows\Linux换行符，不然的话把仓库复制到另一个环境下会出现一堆whitespace change
 ```
 
 # gpg
