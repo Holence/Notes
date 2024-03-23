@@ -225,3 +225,24 @@ Jump (to Imm) and link：`rd = PC + 4; PC += {imm,0}`
 [20]同理是符号位在最前，[10:1]复用I-Type的线路，[11]单独处理，[19:12]复用U-Type的线路。
 
 所以只需要一条额外的datapath❓
+
+# Venus
+
+[Venus - Github](https://github.com/ThaumicMekanism/venus)
+
+[Venus Reference](https://inst.eecs.berkeley.edu/~cs61c/sp21/resources/venus-reference)
+
+Java/Web的RISC-V模拟器
+
+```bash
+java -jar venus.jar -cc test.s arg1 arg2 arg3
+```
+
+System Call `ecall`：用`a0`指定函数，用`a1-a7`传参：[Venus List of System Calls](https://github.com/ThaumicMekanism/venus/wiki/Environmental-Calls)
+
+```assembly
+li a0, 1    # syscall number for printing integer
+li a1, 1024 # the integer we're printing
+ecall       # issue system call
+```
+
